@@ -20,6 +20,8 @@ class CreateScoresTable extends Migration
             $table->unsignedTinyInteger('opponent_score')->default(0);
             $table->enum('won', ['w', 'l', 't'])->default('t');
             $table->timestamps();
+
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
